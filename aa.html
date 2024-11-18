@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reveal Effect</title>
+  <style>
+    #revealer {
+      width: 300px;
+      height: 150px;
+      background-color: #2ecc71;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      clip-path: inset(0 100% 0 0); /* Start fully hidden */
+      transition: clip-path 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="revealer">Revealed Content</div>
+
+  <button id="revealBtn">Reveal</button>
+
+  <script>
+    const revealer = document.getElementById('revealer');
+    const revealBtn = document.getElementById('revealBtn');
+
+    revealBtn.addEventListener('click', () => {
+        console.log(revealer.style.clipPath)
+      // Toggle the reveal effect
+      if (revealer.style.clipPath === 'inset(0%)') {
+        revealer.style.clipPath = 'inset(0 100% 0 0)'; // Hide content
+      } else {
+        revealer.style.clipPath = 'inset(0%)'; // Reveal content
+      }
+    });
+  </script>
+</body>
+</html>
